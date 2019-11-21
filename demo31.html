@@ -1,0 +1,38 @@
+<!doctype html>
+
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.js"></script>
+
+<style id="css">
+
+rect {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: white;
+}
+
+path {
+  stroke: #333;
+  fill: #333;
+  stroke-width: 1.5px;
+}
+</style>
+
+<svg width=1100 height=1000><g transform="translate(200,200)"></g>g></svg>
+
+<script id="js">
+     d3.select("svg").select("g").append("g").append("rect").attr("x",30).attr("y",30).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",130).attr("y",30).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",360).attr("y",380).attr("width",80).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",30).attr("y",-70).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",30).attr("y",-170).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",-70).attr("y",-70).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",-70).attr("y",-170).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("rect").attr("x",130).attr("y",-70).attr("width",40).attr("height",40);
+     d3.select("svg").select("g").append("g").append("text").attr("x",166).attr("y",0).attr("width",78).attr("height",19).attr("transform","rotate(48)").text("Edge Label");
+     d3.select("svg").select("g").append("g").append("path").attr("d","M 50 50 L 130 50");
+
+     
+</script>
+
+

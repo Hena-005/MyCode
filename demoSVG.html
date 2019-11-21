@@ -1,0 +1,75 @@
+<!doctype html>
+
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.js"></script>
+
+		<script src="http://d3js.org/d3-selection-multi.v1.js"></script>
+
+<style id="css">
+
+rect {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: white;
+}
+
+path {
+  stroke: #333;
+  fill: #333;
+  stroke-width: 1.5px;
+}
+</style>
+
+<svg width=1100 height=1000><g transform="translate(200,200)"></g>g></svg>
+
+<script id="js">
+	var data;
+	d3.json("testout.json", function(error,graphData){
+	
+		if(error) throw error;
+		data = graphData;
+		console.log(graphData);
+		generateGraph(data);
+	});
+	function generateGraph(data){
+	console.log(data.nodes);
+	var i;
+	var node;
+	for(i=0;i<data.nodes.length;i++){
+		node = data.nodes[i];
+		d3.select("svg").select("g").append("g").append("rect").attr("x",node.x_Value).attr("y",node.y_Value).attr("width",node.width).attr("height",node.height);
+	}
+	var nLabel;
+	for(i=0;i<data.nodeLabels.length;i++){
+		nLabel = data.nodeLabels[i];
+		d3.select("svg").select("g").append("g").append("text").attr("x",nLabel.x_Value).attr("y",nLabel.y_Value).attr("width",nLabel.width).attr("height",nLabel.height).attr("transform","rotate(nLabel.angle)").text(nLabel.text);
+	}
+	var edge;
+	var dirN;
+	var midPoint;
+	for(i=0;i<data.edges.length;i++){
+		edge = data.edges[i];
+		<!-- to be contd... -->
+		dirN = 'M'.concat(' ',edge.startPortLocation[0],' ',edge.startPortLocation[1]);
+		if(null != edge.midPortLocation){
+		for(var j=0;j<edge.midPortLocation.length;j++){
+			midPoint = edge.midPortLocation[j];
+			dirN = dirN.concat(' L ',midPoint[0],' ',midPoint[1]);
+		}}
+		dirN = dirN.concat(' L ',edge.endPortLocation[0],' ',edge.endPortLocation[1]);
+		d3.select("svg").select("g").append("g").append("path").attr("d",dirN).attr('style','fill:none');
+	}
+		d3.select('g').on('scroll',function(){
+			console.log("scrolled");
+		})
+		
+	}
+	
+
+     <!-- d3.select("svg").select("g").append("g").append("text").attr("x",166).attr("y",0).attr("width",78).attr("height",19).attr("transform","rotate(48)").text("Edge Label"); -->
+     <!-- d3.select("svg").select("g").append("g").append("path").attr("d","M 50 50 L 130 50"); -->
+
+     
+</script>
+
+
