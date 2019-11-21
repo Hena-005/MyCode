@@ -1,0 +1,88 @@
+{
+"vertices":[
+			{
+	            "id": "System870",
+	            "objectId": "870",
+	            "name": "PERFS31",
+	            "properties": []
+	        },
+			{
+	            "id": "System869",
+	            "objectId": "869",
+	            "name": "PERFS32",
+	            "properties": []
+	        },
+			{
+	            "id": "System868",
+	            "objectId": "868",
+	            "name": "PERFS33",
+	            "properties": []
+	        },
+			{
+	            "id": "System867",
+	            "objectId": "867",
+	            "name": "PERFS34",
+	            "properties": []
+	        },
+			{
+	            "id": "System866",
+	            "objectId": "866",
+	            "name": "PERFS35",
+	            "properties": []
+	        },
+			{
+	            "id": "System865",
+	            "objectId": "865",
+	            "name": "PERFS36",
+	            "properties": []
+	        }
+		],
+"edges":[
+		{
+            "source": "System865",
+            "target": "System866",
+            "label": "System_System"
+        },
+        {
+            "source": "System866",
+            "target": "System867",
+            "label": "System_System"
+        },
+        {
+            "source": "System865",
+            "target": "System868",
+            "label": "System_System"
+        },
+        {
+            "source": "System869",
+            "target": "System870",
+            "label": "System_System"
+        }	
+		],
+    "paths": [
+        [
+            "System869",
+            "System870"
+        ],
+        [
+            "System865",
+            "System866"
+            
+        ],
+        [
+        	"System865",
+        	"System867"
+        ],
+        [
+        	"System870",
+        	"System865"
+        ],
+        
+        [
+        	
+        	"System865",
+        	"System866",
+        	"System867"
+        ]
+        ]		
+}
